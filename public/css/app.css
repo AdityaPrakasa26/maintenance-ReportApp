@@ -40,8 +40,6 @@
     cursor: pointer;
 }
 
-
-
 /* Style Umum */
 body {
     font-size: .875rem;
@@ -97,6 +95,73 @@ body {
     padding: 10px 20px;
     background-color: #e9ecef;
 }
+
+/* Search and Filter Styles */
+.search-filter {
+    margin-bottom: 20px;
+}
+
+.search-filter input,
+.search-filter select {
+    padding: 10px;
+    font-size: 1rem;
+    margin-right: 10px;
+}
+
+/* Notification Styles */
+.notifications {
+    margin-bottom: 20px;
+}
+
+/* Document Table Styles */
+.document-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.document-table th,
+.document-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.document-table th {
+    background-color: #f2f2f2;
+    text-align: left;
+}
+
+.document-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.document-table th[colspan="3"] {
+    text-align: center;
+    background-color: #007bff;
+    color: white;
+}
+
+
+/* Sidebar Submenu */
+.sidebar-submenu {
+    display: none;
+    background-color: rgba(0, 123, 255, 0.4); /* Background submenu */
+}
+
+.sidebar-submenu li {
+    padding: 10px;
+}
+
+.sidebar-submenu li a {
+    color: white;
+    padding: 10px 20px;
+    display: block;
+}
+
+/* Active submenu */
+.sidebar .sidebar-submenu.show {
+    display: block;
+}
+
 
 /* Navbar */
 .navbar {

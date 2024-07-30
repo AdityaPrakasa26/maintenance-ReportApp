@@ -17,7 +17,7 @@
                 <textarea id="description" name="description"></textarea><br><br>
 
                 <label for="location">Location:</label><br>
-                <input type="text" id="location" name="location"><br><br>
+                <input type="text" id="location" name="location" placeholder="Enter a location"><br><br>
 
                 <label for="reason">Reason:</label><br>
                 <input type="text" id="reason" name="reason"><br><br>
@@ -60,5 +60,30 @@
                 modal.style.display = "none";
             }
         }
+
+        // Initialize Google Maps Autocomplete
+        function initAutocomplete() {
+            var input = document.getElementById('location');
+            var autocomplete = new google.maps.places.Autocomplete(input);
+
+            // Bias the autocomplete object to the user's geographical location
+            // in order to give better results for cities.
+            autocomplete.setBounds(new google.maps.LatLngBounds(
+                new google.maps.LatLng(-85, -180),
+                new google.maps.LatLng(85, 180)
+            ));
+
+            // Add event listener for when the user selects an address from the dropdown
+            autocomplete.addListener('place_changed', function() {
+                var place = autocomplete.getPlace();
+                // You can handle the selected place details here if needed
+                console.log(place);
+            });
+        }
+
+        // Load the autocomplete function when the window loads
+        window.onload = function() {
+            initAutocomplete();
+        };
     </script>
 @endsection

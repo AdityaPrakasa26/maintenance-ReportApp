@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maintenance Report App</title>
+    <title>Maintenance Report</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -101,6 +101,25 @@
             font-size: 1.25px;
         }
 
+        .sidebar .header-container {
+            display: flex;
+            align-items: center;
+            justify-content:center;
+            padding: 10px;
+            border-bottom: 1px solid #e9ecef;
+            /* Garis pemisah */
+        }
+
+        .sidebar .header-container h2 {
+            margin: 0;
+            font-size: 1.25rem;
+            flex-grow: 1;
+        }
+
+        .sidebar .header-container .navbar-toggler {
+            margin-right: 20px;
+        }
+
         .content {
             flex: 1;
             padding: 20px;
@@ -152,7 +171,7 @@
 <body>
     <button class="navbar-toggler" id="sidebarToggle"><i class="fas fa-bars"></i></button>
     <div class="sidebar" id="sidebar">
-        <div>
+        <div class="header-container">
             <button class="navbar-toggler" id="sidebarToggle"><i class="fas fa-bars"></i></button>
             <h2><a class="nav-link" href="/">Maintenance Report</a></h2>
         </div>

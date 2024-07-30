@@ -25,7 +25,7 @@
         }
     </style>
     <div class="home-content">
-        <h1>Welcome to Maintenance bang</h1>
+        <h1>Welcome to Maintenance Report!!!</h1>
         <h2>Maintenance Apps</h2>
     </div>
 @endsection

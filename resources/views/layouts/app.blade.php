@@ -113,6 +113,15 @@
             margin-left: 0;
         }
 
+        .sidebar-submenu {
+            display: none;
+            padding-left: 20px;
+        }
+
+        .sidebar-submenu.show {
+            display: block;
+        }
+
         /* Logout Button Styles */
         .logout-button {
             padding: 10px 20px;
@@ -151,11 +160,13 @@
             <li><a class="nav-link" href="/change-request">Change Request Form</a></li>
             <li><a class="nav-link" href="/task-description">Task Description</a></li>
             <li><a class="nav-link" href="/task-list">Task List</a></li>
-            <li><a class="nav-link" href="#" id="libraryToggle">Library</a></li>
-            <ul class="sidebar-submenu" id="libraryMenu">
-                <li><a class="nav-link" href="/library">View Documents</a></li>
-                <li><a class="nav-link" href="/library">Upload Documents</a></li>
-            </ul>
+            <li>
+                <a class="nav-link" href="#" id="libraryToggle">Library</a>
+                <ul class="sidebar-submenu" id="libraryMenu">
+                    <li><a class="nav-link" href="/library">View Documents</a></li>
+                    <li><a class="nav-link" href="/upload">Upload Documents</a></li>
+                </ul>
+            </li>
         </ul>
         <a href="/logout" class="logout-button">Logout</a>
     </div>
@@ -170,7 +181,6 @@
         sidebarToggle.addEventListener('click', function() {
             sidebar.classList.toggle('hidden');
             content.classList.toggle('collapsed');
-            // Tambahkan atau hapus kelas 'sidebar-hidden' pada tombol toggle
             if (sidebar.classList.contains('hidden')) {
                 sidebarToggle.classList.add('sidebar-hidden');
             } else {

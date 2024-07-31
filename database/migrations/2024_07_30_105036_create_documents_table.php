@@ -14,11 +14,8 @@ class CreateDocumentsTable extends Migration
             $table->string('type');
             $table->integer('size');
             $table->string('owner');
-            $table->timestamp('modified');
-            $table->timestamp('created');
             $table->string('download_permissions');
             $table->string('access');
-            $table->timestamp('last_interaction');
             $table->string('last_interactor');
             $table->timestamps();
         });

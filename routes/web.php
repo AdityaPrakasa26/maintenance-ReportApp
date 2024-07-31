@@ -5,6 +5,7 @@ use App\Http\Controllers\ChangeRequestController;
 use App\Http\Controllers\TaskListController;
 use App\Http\Controllers\UploadController;
 use App\Http\Controllers\LibraryController;
+use App\Http\Controllers\MaintenanceController;
 
 // Rute untuk halaman utama
 Route::get('/', function () {
@@ -37,8 +38,18 @@ Route::post('/submit-task-list', [TaskListController::class, 'store']);
 Route::post('/upload', [UploadController::class, 'upload']);
 
 // Rute untuk menampilkan dokumen
-Route::get('/library', [LibraryController::class, 'index']);
+Route::get('/library', [LibraryController::class, 'index'])->name('maintenance.library');
 
 // Rute untuk menampilkan informasi dokumen (popup)
 Route::get('/library/document/{id}', [LibraryController::class, 'show'])->name('library.document.show');
+
+
+Route::get('maintenance/change-request/create', [MaintenanceController::class, 'createChangeRequest'])->name('maintenance.createChangeRequest');
+Route::post('maintenance/change-request', [MaintenanceController::class, 'storeChangeRequest'])->name('maintenance.storeChangeRequest');
+
+Route::get('maintenance/task-description/create', [MaintenanceController::class, 'createTaskDescription'])->name('maintenance.createTaskDescription');
+Route::post('maintenance/task-description', [MaintenanceController::class, 'storeTaskDescription'])->name('maintenance.storeTaskDescription');
+
+Route::get('maintenance/task-list/create', [MaintenanceController::class, 'createTaskList'])->name('maintenance.createTaskList');
+Route::post('maintenance/task-list', [MaintenanceController::class, 'storeTaskList'])->name('maintenance.storeTaskList');
 

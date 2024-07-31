@@ -176,9 +176,9 @@
             <h2><a class="nav-link" href="/">Maintenance Report</a></h2>
         </div>
         <ul class="sidebar-sticky">
-            <li><a class="nav-link" href="/change-request">Change Request Form</a></li>
-            <li><a class="nav-link" href="/task-description">Task Description</a></li>
-            <li><a class="nav-link" href="/task-list">Task List</a></li>
+            <li><a class="nav-link" href="{{ route('maintenance.createChangeRequest') }}">Change Request Form</a></li>
+            <li><a class="nav-link" href="{{ route('maintenance.createTaskDescription') }}">Task Description</a></li>
+            <li><a class="nav-link" href="{{ route('maintenance.createTaskList') }}">Task List</a></li>
             <li>
                 <a class="nav-link" href="#" id="libraryToggle">Library</a>
                 <ul class="sidebar-submenu" id="libraryMenu">

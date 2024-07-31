@@ -173,7 +173,7 @@
     <div class="sidebar" id="sidebar">
         <div class="header-container">
             <button class="navbar-toggler" id="sidebarToggle"><i class="fas fa-bars"></i></button>
-            <h2><a class="nav-link" href="/">Maintenance Report</a></h2>
+            <h2><a class="nav-link" href="/home">Maintenance Report</a></h2>
         </div>
         <ul class="sidebar-sticky">
             <li><a class="nav-link" href="{{ route('maintenance.createChangeRequest') }}">Change Request Form</a></li>

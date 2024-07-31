@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ChangeRequestController;
 use App\Http\Controllers\TaskListController;
@@ -7,10 +8,18 @@ use App\Http\Controllers\UploadController;
 use App\Http\Controllers\LibraryController;
 use App\Http\Controllers\MaintenanceController;
 
-// Rute untuk halaman utama
+// Rute untuk login
 Route::get('/', function () {
+    return view('login');
+})->name('login');
+
+route::post('/login',[LoginController::class,'login'])->name('login.check');
+route::get('/logout',[LoginController::class,'logout'])->name('logout');
+
+// rute dashboard
+Route::get('/home', function () {
     return view('home');
-});
+})->name('home');
 
 // Rute untuk halaman Change Request Form
 Route::get('/change-request', function () {

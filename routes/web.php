@@ -13,10 +13,10 @@ Route::get('/', function () {
     return view('login');
 })->name('login');
 
-route::post('/login',[LoginController::class,'login'])->name('login.check');
-route::get('/logout',[LoginController::class,'logout'])->name('logout');
+Route::post('/login', [LoginController::class, 'login'])->name('login.check');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
-// rute dashboard
+// Rute untuk dashboard
 Route::get('/home', function () {
     return view('home');
 })->name('home');
@@ -52,7 +52,6 @@ Route::get('/library', [LibraryController::class, 'index'])->name('maintenance.l
 // Rute untuk menampilkan informasi dokumen (popup)
 Route::get('/library/document/{id}', [LibraryController::class, 'show'])->name('library.document.show');
 
-
 Route::get('maintenance/change-request/create', [MaintenanceController::class, 'createChangeRequest'])->name('maintenance.createChangeRequest');
 Route::post('maintenance/change-request', [MaintenanceController::class, 'storeChangeRequest'])->name('maintenance.storeChangeRequest');
 
@@ -61,4 +60,3 @@ Route::post('maintenance/task-description', [MaintenanceController::class, 'stor
 
 Route::get('maintenance/task-list/create', [MaintenanceController::class, 'createTaskList'])->name('maintenance.createTaskList');
 Route::post('maintenance/task-list', [MaintenanceController::class, 'storeTaskList'])->name('maintenance.storeTaskList');
-

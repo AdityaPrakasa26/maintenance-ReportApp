@@ -25,7 +25,7 @@
                 <form action="{{ route("login.check") }}" method="post">
                     @csrf
                     <div class="mb-1">
-                        <label for="exampleInputEmail1" class="form-label">Username</label>
+                        <label for="exampleInputEmail1" class="form-label">Email</label>
                         <input type="email" class="form-control" autocomplete="off" value="{{ old('email') }}" id="exampleInputEmail1" autocomplete="off" name="email" aria-describedby="emailHelp">
                         @error('email')
                         {{ $message }}

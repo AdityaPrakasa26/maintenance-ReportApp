@@ -13,8 +13,11 @@
                 @csrf
                 <!-- Form fields -->
                 <!-- Add your fields here based on your example -->
-                <label for="estimated_time">Estimated Time of Work:</label><br>
-                <input type="text" id="estimated_time" name="estimated_time"><br><br>
+                <label for="estimated_start">Estimated Start :</label><br>
+                <input type="date" id="estimated_start" name="estimated_start"><br><br>
+
+                <label for="estimated_finish">Estimated Finish:</label><br>
+                <input type="date" id="estimated_finish" name="estimated_finish"><br><br>
 
                 <label for="duration">Duration:</label><br>
                 <select id="duration" name="duration">
@@ -38,6 +41,9 @@
 
                 <label for="approval_date">Approval Date:</label><br>
                 <input type="date" id="approval_date" name="approval_date"><br><br>
+
+                <label for="last_interactor">Last Interactor:</label><br>
+                <input type="text" id="last_interactor" name="last_interactor"><br><br>
                 <button type="submit">Submit</button>
             </form>
         </div>

@@ -33,13 +33,22 @@ class MaintenanceController extends Controller
             session(['change_request_id' => $maintenance->id]);
             $changeRequestId = $maintenance->id;
         } else {
-            // Update existing Maintenance record with new data
+            // Find existing Maintenance record
             $maintenance = Maintenance::find($changeRequestId);
-            $maintenance->update($validatedData);
+
+            if (!$maintenance) {
+                // If the record doesn't exist, create a new one
+                $maintenance = Maintenance::create($validatedData);
+                session(['change_request_id' => $maintenance->id]);
+            } else {
+                // Update existing Maintenance record with new data
+                $maintenance->update($validatedData);
+            }
         }
 
         return redirect()->route('maintenance.createTaskDescription')->with('success', 'Change request created/updated successfully.');
     }
+
 
     public function createTaskDescription()
     {
@@ -51,7 +60,7 @@ class MaintenanceController extends Controller
         $validatedData = $request->validate([
             'description' => 'required|string',
             'location' => 'required|string|max:255',
-            'reason' => 'required|string',
+            'reason' => 'required|string|max:255',
             'priority' => 'required|string|in:High,Medium,Low',
             'technician' => 'required|string|max:255',
         ]);
@@ -77,13 +86,16 @@ class MaintenanceController extends Controller
     public function storeTaskList(Request $request)
     {
         $validatedData = $request->validate([
-            'estimated_time' => 'required|string|max:255',
+            'estimated_start' => 'required|date',
+            'estimated_finish' => 'required|date',
             'duration' => 'required|string|in:1 hour,2 hours,Half Day,Full Day',
-            'cost' => 'required|numeric',
+            'cost' => 'required|string',
+            'list_task' => 'required|string',
             'date_needed' => 'required|date',
             'approval_requester' => 'required|string|max:255',
             'approval_manager' => 'required|string|max:255',
             'approval_date' => 'required|date',
+            'last_interactor' => 'required|string|max:255',
         ]);
 
         // Retrieve the change request ID from the session

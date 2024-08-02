@@ -38,7 +38,6 @@
             </form>
         </div>
     </div>
-
     <!-- Script for Modal -->
     <script>
         // Get modal elements

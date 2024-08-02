@@ -13,10 +13,10 @@ Route::get('/', function () {
     return view('login');
 })->name('login');
 
-Route::post('/login', [LoginController::class, 'login'])->name('login.check');
-Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+route::post('/login',[LoginController::class,'login'])->name('login.check');
+route::get('/logout',[LoginController::class,'logout'])->name('logout');
 
-// Rute untuk dashboard
+// rute dashboard
 Route::get('/home', function () {
     return view('home');
 })->name('home');
@@ -51,6 +51,7 @@ Route::get('/library', [LibraryController::class, 'index'])->name('maintenance.l
 
 // Rute untuk menampilkan informasi dokumen (popup)
 Route::get('/library/document/{id}', [LibraryController::class, 'show'])->name('library.document.show');
+
 
 Route::get('maintenance/change-request/create', [MaintenanceController::class, 'createChangeRequest'])->name('maintenance.createChangeRequest');
 Route::post('maintenance/change-request', [MaintenanceController::class, 'storeChangeRequest'])->name('maintenance.storeChangeRequest');

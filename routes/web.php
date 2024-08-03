@@ -61,3 +61,7 @@ Route::post('maintenance/task-description', [MaintenanceController::class, 'stor
 
 Route::get('maintenance/task-list/create', [MaintenanceController::class, 'createTaskList'])->name('maintenance.createTaskList');
 Route::post('maintenance/task-list', [MaintenanceController::class, 'storeTaskList'])->name('maintenance.storeTaskList');
+
+Route::get('/maintenance', [MaintenanceController::class, 'index'])->name('maintenance.index');
+Route::get('/maintenance/{id}', [MaintenanceController::class, 'show'])->name('maintenance.show');
+Route::get('/maintenance/{id}/reportPDF', [MaintenanceController::class, 'reportPDF'])->name('maintenance.reportPDF');

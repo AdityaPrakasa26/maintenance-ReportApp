@@ -3,10 +3,42 @@
 namespace App\Http\Controllers;
 
 use App\Models\Maintenance;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
+use Yajra\DataTables\Facades\DataTables;
 
 class MaintenanceController extends Controller
 {
+    public function index(Request $request)
+    {
+        if ($request->ajax()) {
+            $data = Maintenance::all();
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->addColumn('action', function($row){
+                    $btn = '<a href="'.route('maintenance.show', $row->id).'" class="btn btn-info">Detail</a>';
+                    $btn .= ' <a href="'.route('maintenance.reportPDF', $row->id).'" class="btn btn-danger">Laporan PDF</a>';
+                    return $btn;
+                })
+                ->rawColumns(['action'])
+                ->make(true);
+        }
+
+        return view('library.library');
+    }
+
+    public function show($id)
+    {
+        $maintenance = Maintenance::findOrFail($id);
+        return view('maintenance.show', compact('maintenance'));
+    }
+
+    public function reportPDF($id)
+    {
+        $maintenance = Maintenance::findOrFail($id);
+        $pdf = Pdf::loadView('maintenance.pdf', compact('maintenance'));
+        return $pdf->download('maintenance_report_'.$id.'.pdf');
+    }
     public function createChangeRequest()
     {
         return view('maintenance.create_change_request');
@@ -105,7 +137,7 @@ class MaintenanceController extends Controller
             $validatedData['change_request_id'] = $changeRequestId;
             Maintenance::find($changeRequestId)->update($validatedData);
         } else {
-            return redirect()->route('maintenance.library')->with('error', 'Change request ID not found in session.');
+            return redirect()->route('maintenance.index')->with('error', 'Change request ID not found in session.');
         }
 
         return redirect()->route('maintenance.library')->with('success', 'Task list created/updated successfully.');

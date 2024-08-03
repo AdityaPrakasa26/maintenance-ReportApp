@@ -24,6 +24,9 @@
                     <option value="Full Day">Full Day</option>
                 </select><br><br>
 
+                <label for="list_task">List Task:</label><br>
+                <input type="text" id="list_task" name="list_task"><br><br>
+
                 <label for="cost">Cost:</label><br>
                 <input type="text" id="cost" name="cost"><br><br>
 

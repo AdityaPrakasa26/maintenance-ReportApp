@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maintenance Report</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="{{ asset('AdminLTE-3.2.0/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
+    <link rel="stylesheet"
+        href="{{ asset('AdminLTE-3.2.0/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
+    <link rel="stylesheet"
+        href="{{ asset('AdminLTE-3.2.0/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
@@ -104,7 +110,7 @@
         .sidebar .header-container {
             display: flex;
             align-items: center;
-            justify-content:center;
+            justify-content: center;
             padding: 10px;
             border-bottom: 1px solid #e9ecef;
             /* Garis pemisah */
@@ -182,7 +188,7 @@
             <li>
                 <a class="nav-link" href="#" id="libraryToggle">Library</a>
                 <ul class="sidebar-submenu" id="libraryMenu">
-                    <li><a class="nav-link" href="/library">View Documents</a></li>
+                    <li><a class="nav-link" href="{{ route('maintenance.index') }}">View Documents</a></li>
                     <li><a class="nav-link" href="/upload">Upload Documents</a></li>
                 </ul>
             </li>
@@ -192,6 +198,20 @@
     <div class="content" id="content">
         @yield('content')
     </div>
+    <!-- jQuery -->
+    <script src="{{ asset('AdminLTE-3.2.0/plugins/jquery/jquery.min.js') }}"></script>
+    <!-- DataTables  & Plugins -->
+    <script src="{{ asset('AdminLTE-3.2.0/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('AdminLTE-3.2.0/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('AdminLTE-3.2.0/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
+    <script src="{{ asset('AdminLTE-3.2.0/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('AdminLTE-3.2.0/plugins/datatables-buttons/js/dataTables.buttons.min.js') }}"></script>
+    <script src="{{ asset('AdminLTE-3.2.0/plugins/datatables-buttons/js/buttons.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('AdminLTE-3.2.0/plugins/jszip/jszip.min.js') }}"></script>
+    <script src="{{ asset('AdminLTE-3.2.0/plugins/pdfmake/pdfmake.min.js') }}"></script>
+    <script src="{{ asset('AdminLTE-3.2.0/plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
+    <script src="{{ asset('AdminLTE-3.2.0/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
+    <script src="{{ asset('AdminLTE-3.2.0/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
     <script>
         const sidebar = document.getElementById('sidebar');
         const sidebarToggle = document.getElementById('sidebarToggle');
@@ -214,6 +234,7 @@
             libraryMenu.classList.toggle('show');
         });
     </script>
+    @yield('script')
 </body>
 
 </html>

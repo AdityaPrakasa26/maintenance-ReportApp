@@ -32,6 +32,7 @@ class TaskListController extends Controller
         // Task::create([
         //     'estimated_time' => $request->input('estimated_time'),
         //     'duration' => $request->input('duration'),
+        //     'list_task' => $request->input('list_task')
         //     'cost' => $request->input('cost'),
         //     'date_needed' => $request->input('date_needed'),
         //     'approval_requester' => $request->input('approval_requester'),

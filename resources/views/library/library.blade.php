@@ -1,53 +1,70 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <h1>View Documents</h1>
-    <form action="/library" method="GET">
-        <input type="text" name="search" placeholder="Search documents">
-        <button type="submit">Search</button>
-    </form>
-
-    <div class="document-list">
-        @foreach($documents as $document)
-        <div class="document-item">
-            <div class="document-info">
-                <p>{{ $document->name }}</p>
-                <button onclick="showDocumentInfo({{ $document->id }})">i</button>
-            </div>
-        </div>
-        @endforeach
+    <div class="container">
+        <h1>Daftar Pemeliharaan</h1>
+        <table id="maintenanceTable" class="table table-bordered yajra-datatable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nama Proyek</th>
+                    <th>Nama Perubahan</th>
+                    <th>Nomor Tiket</th>
+                    <th>Diminta Oleh</th>
+                    <th>Kontak</th>
+                    <th>Tanggal</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
     </div>
-</div>
+@endsection
 
-<div id="document-info-popup" style="display: none;">
-    <div class="popup-content">
-        <h2>File Information</h2>
-        <p id="file-info"></p>
-        <button onclick="closePopup()">Close</button>
-    </div>
-</div>
-
-<script>
-    function showDocumentInfo(id) {
-        fetch(`/library/document/${id}`)
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById('file-info').innerHTML = `
-                    <strong>Who has Access:</strong> ${data.access}<br>
-                    <strong>Type File:</strong> ${data.type}<br>
-                    <strong>Size:</strong> ${data.size}<br>
-                    <strong>Owner:</strong> ${data.owner}<br>
-                    <strong>Modified:</strong> ${data.modified}<br>
-                    <strong>Created:</strong> ${data.created}<br>
-                    <strong>Download Permissions:</strong> ${data.download_permissions}
-                `;
-                document.getElementById('document-info-popup').style.display = 'block';
+@section('script')
+    <script>
+        $(function() {
+            var table = $('.yajra-datatable').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: "{{ route('maintenance.index') }}",
+                columns: [{
+                        data: 'id',
+                        name: 'id'
+                    },
+                    {
+                        data: 'project_name',
+                        name: 'project_name'
+                    },
+                    {
+                        data: 'change_name',
+                        name: 'change_name'
+                    },
+                    {
+                        data: 'ticket_number',
+                        name: 'ticket_number'
+                    },
+                    {
+                        data: 'requested_by',
+                        name: 'requested_by'
+                    },
+                    {
+                        data: 'contact',
+                        name: 'contact'
+                    },
+                    {
+                        data: 'date',
+                        name: 'date'
+                    },
+                    {
+                        data: 'action',
+                        name: 'action',
+                        orderable: false,
+                        searchable: false,
+                    },
+                ]
             });
-    }
-
-    function closePopup() {
-        document.getElementById('document-info-popup').style.display = 'none';
-    }
-</script>
+        });
+    </script>
 @endsection

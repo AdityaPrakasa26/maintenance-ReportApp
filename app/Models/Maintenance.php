@@ -25,6 +25,7 @@ class Maintenance extends Model
         'estimated_finish',
         'duration',
         'cost',
+        'list_task',
         'date_needed',
         'approval_requester',
         'approval_manager',

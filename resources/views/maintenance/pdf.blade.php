@@ -31,23 +31,23 @@
             <td>{{ $maintenance->id }}</td>
         </tr>
         <tr>
-            <th>Nama Proyek</th>
+            <th>Project Name</th>
             <td>{{ $maintenance->project_name }}</td>
         </tr>
         <tr>
-            <th>Nama Perubahan</th>
+            <th>Changed Name</th>
             <td>{{ $maintenance->change_name }}</td>
         </tr>
         <tr>
-            <th>Nomor Tiket</th>
+            <th>Ticket Number</th>
             <td>{{ $maintenance->ticket_number }}</td>
         </tr>
         <tr>
-            <th>Diminta Oleh</th>
+            <th>Requested By</th>
             <td>{{ $maintenance->requested_by }}</td>
         </tr>
         <tr>
-            <th>Kontak</th>
+            <th>Contact</th>
             <td>{{ $maintenance->contact }}</td>
         </tr>
         <tr>
@@ -55,8 +55,56 @@
             <td>{{ $maintenance->date }}</td>
         </tr>
         <tr>
-            <th>Alasan</th>
+            <th>Reason</th>
             <td>{{ $maintenance->reason }}</td>
+        </tr>
+        <tr>
+            <th>Description</th>
+            <td>{{ $maintenance->description }}</td>
+        </tr>
+        <tr>
+            <th>Priority</th>
+            <td>{{ $maintenance->priority }}</td>
+        </tr>
+        <tr>
+            <th>Technician</th>
+            <td>{{ $maintenance->technician }}</td>
+        </tr>
+        <tr>
+            <th>Estimated Start</th>
+            <td>{{ $maintenance->estimated_start }}</td>
+        </tr>
+        <tr>
+            <th>Estimated Finish</th>
+            <td>{{ $maintenance->estimated_finish }}</td>
+        </tr>
+        <tr>
+            <th>Duration</th>
+            <td>{{ $maintenance->duration }}</td>
+        </tr>
+        <tr>
+            <th>Cost</th>
+            <td>{{ $maintenance->cost }}</td>
+        </tr>
+        <tr>
+            <th>Date Needed</th>
+            <td>{{ $maintenance->date_needed }}</td>
+        </tr>
+        <tr>
+            <th>Approval of Requester</th>
+            <td>{{ $maintenance->approval_requester }}</td>
+        </tr>
+        <tr>
+            <th>Approval of Manager</th>
+            <td>{{ $maintenance->approval_manager }}</td>
+        </tr>
+        <tr>
+            <th>Approval date</th>
+            <td>{{ $maintenance->approval_date }}</td>
+        </tr>
+        <tr>
+            <th>Last Interactor</th>
+            <td>{{ $maintenance->last_interactor }}</td>
         </tr>
         <!-- Tambahkan field lain sesuai kebutuhan -->
     </table>

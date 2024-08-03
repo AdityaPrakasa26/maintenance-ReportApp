@@ -7,13 +7,26 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Nama Proyek</th>
-                    <th>Nama Perubahan</th>
-                    <th>Nomor Tiket</th>
-                    <th>Diminta Oleh</th>
-                    <th>Kontak</th>
-                    <th>Tanggal</th>
-                    <th>Aksi</th>
+                    <th>Project Name</th>
+                    <th>Change Name</th>
+                    <th>Ticket Number</th>
+                    <th>Requested By</th>
+                    <th>Contact</th>
+                    <th>Date</th>
+                    <th>Description</th>
+                    <th>Reason</th>
+                    <th>Priority</th>
+                    <th>Technician</th>
+                    <th>List Task</th>
+                    <th>Estimated Start</th>
+                    <th>Estimated Finish</th>
+                    <th>Duration</th>
+                    <th>Cost</th>
+                    <th>Date Needed</th>
+                    <th>Approval of Requester</th>
+                    <th>Approval of Manager</th>
+                    <th>Approval Date</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -56,6 +69,54 @@
                     {
                         data: 'date',
                         name: 'date'
+                    },
+                    {
+                        data: 'description',
+                        name: 'description'
+                    },
+                    {
+                        data: 'priority',
+                        name: 'priority'
+                    },
+                    {
+                        data: 'technician',
+                        name: 'technician'
+                    },
+                    {
+                        data: 'list_task',
+                        name: 'list_task'
+                    },
+                    {
+                        data: 'estimated_start',
+                        name: 'estimated_start'
+                    },
+                    {
+                        data: 'estimated_finish',
+                        name: 'estimated_finish'
+                    },
+                    {
+                        data: 'duration',
+                        name: 'duration'
+                    },
+                    {
+                        data: 'date_needed',
+                        name: 'date_needed'
+                    },
+                    {
+                        data: 'approval_requester',
+                        name: 'approval_requester'
+                    },
+                    {
+                        data: 'approval_manager',
+                        name: 'approval_manager'
+                    },
+                    {
+                        data: 'approval_date',
+                        name: 'approval_date'
+                    },
+                    {
+                        data: 'last_interactor',
+                        name: 'last_interactor'
                     },
                     {
                         data: 'action',

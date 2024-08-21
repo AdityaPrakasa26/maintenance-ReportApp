@@ -6,15 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maintenance Report</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-<<<<<<< HEAD
-<<<<<<< HEAD
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-=======
-=======
->>>>>>> 7c94da3e1376ac420f1a79f1a01048ca67eedba3
-    <!-- DataTables -->
-    <link rel="stylesheet" href="{{ asset('AdminLTE-3.2.0/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
+    <link rel="stylesheet"
+        href="{{ asset('AdminLTE-3.2.0/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
     <link rel="stylesheet"
         href="{{ asset('AdminLTE-3.2.0/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
     <link rel="stylesheet"
@@ -179,7 +174,6 @@
             /* Putih dengan transparansi 80% pada hover */
         }
     </style>
->>>>>>> 7c94da3e1376ac420f1a79f1a01048ca67eedba3
 </head>
 
 <body>

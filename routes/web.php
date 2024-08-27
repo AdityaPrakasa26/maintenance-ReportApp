@@ -1,12 +1,13 @@
 <?php
 
 use App\Http\Controllers\LoginController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ChangeRequestController;
 use App\Http\Controllers\TaskListController;
 use App\Http\Controllers\UploadController;
 use App\Http\Controllers\LibraryController;
 use App\Http\Controllers\MaintenanceController;
+use App\Http\Controllers\PDFController;
+use Illuminate\Support\Facades\Route;
 
 // Rute untuk login
 Route::get('/', function () {
@@ -16,7 +17,7 @@ Route::get('/', function () {
 route::post('/login',[LoginController::class,'login'])->name('login.check');
 route::get('/logout',[LoginController::class,'logout'])->name('logout');
 
-// rute dashboard
+// Rute dashboard
 Route::get('/home', function () {
     return view('home');
 })->name('home');
@@ -52,7 +53,7 @@ Route::get('/library', [LibraryController::class, 'index'])->name('maintenance.l
 // Rute untuk menampilkan informasi dokumen (popup)
 Route::get('/library/document/{id}', [LibraryController::class, 'show'])->name('library.document.show');
 
-
+// Rute Maintenance
 Route::get('maintenance/change-request/create', [MaintenanceController::class, 'createChangeRequest'])->name('maintenance.createChangeRequest');
 Route::post('maintenance/change-request', [MaintenanceController::class, 'storeChangeRequest'])->name('maintenance.storeChangeRequest');
 
@@ -65,3 +66,9 @@ Route::post('maintenance/task-list', [MaintenanceController::class, 'storeTaskLi
 Route::get('/maintenance', [MaintenanceController::class, 'index'])->name('maintenance.index');
 Route::get('/maintenance/{id}', [MaintenanceController::class, 'show'])->name('maintenance.show');
 Route::get('/maintenance/{id}/reportPDF', [MaintenanceController::class, 'reportPDF'])->name('maintenance.reportPDF');
+
+// Rute untuk generate PDF dari Change Request Form
+Route::get('/generate-pdf', [PDFController::class, 'generatePDF'])->name('generatePDF');
+
+// Rute untuk menampilkan dokumen dan cetak PDF
+Route::get('/view-document-pdf/{id}', [PDFController::class, 'viewDocumentPDF'])->name('viewDocumentPDF');
